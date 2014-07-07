@@ -5,8 +5,10 @@
   //
   // @param {String} selector DOM query selector e.g. 'ul.list-items a'
 
-  var ScrollFrame = function(selector) {
+  var scrollFrame = function(selector) {
     document.addEventListener('click', function(e) {
+
+      console.log('moo');
 
       // Ignore if the element doesnt match our selector
       var els = document.querySelectorAll(selector);
@@ -60,8 +62,8 @@
 
   // Export for CommonJS & window global
   if (typeof module != 'undefined') {
-    module.exports = ScrollFrame;
+    module.exports = scrollFrame;
   } else {
-    window.ScrollFrame = ScrollFrame;
+    window.scrollFrame = scrollFrame;
   }
 })();
