@@ -3,4 +3,7 @@ BIN = node_modules/.bin
 test:
 	$(BIN)/mocha test/test.js
 
-.PHONY: test
+example:
+	node example/server.js
+
+.PHONY: test example
