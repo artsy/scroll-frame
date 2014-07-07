@@ -21,11 +21,16 @@
     "node": ">= 0.10.x"
   },
   "scripts": {
-    "test": "make test"
+    "test": "mocha",
+    "example": "node example/server.js"
   },
   "dependencies": {
   },
   "devDependencies": {
-    "express": "*"
+    "express": "*",
+    "mocha": "*",
+    "benv": "*",
+    "should": "*",
+    "jquery": "*"
   }
 }
