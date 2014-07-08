@@ -1,20 +1,52 @@
-var benv = require('benv');
-var scrollFrame;
+var app = require('../example/server');
+var Browser = require('zombie');
+var sinon = require('sinon');
+var server, browser;
 
 beforeEach(function(done) {
-  benv.setup(function() {
-    benv.expose({ $: require('jquery'), jQuery: require('jquery') });
-    scrollFrame = require('../index');
-    done();
+  server = app.listen(5000, function() {
+    browser = new Browser();
+    browser.visit('http://localhost:5000', function() {
+      done();
+    });
   });
 });
 
 afterEach(function() {
-  benv.teardown();
+  server.close();
 });
 
 describe('scrollFrame', function() {
 
-  it('adds an iframe to the body when clicking a scoped link', function() {
+  it('adds an iframe to the body when clicking a scoped link', function(done) {
+    browser.wait(function() {
+      browser.window.Array = Array;
+      browser.window.Array.prototype.filter = function(cb) {
+        return [function(){}]
+      }
+      browser.clickLink('li:nth-child(6) a', function() {
+        browser.html().should
+          .containEql('<iframe class="scroll-frame-iframe" src="http://localhost:5000/detail.html')
+        done();
+      });
+    });
+  });
+
+  xit('removes the iframe when going back', function(done) {
+    browser.wait(function() {
+      browser.window.Array = Array;
+      browser.window.Array.prototype.filter = function(cb) {
+        return [function(){}]
+      }
+      browser.clickLink('li:nth-child(6) a', function() {
+        browser.html().should
+          .containEql('<iframe class="scroll-frame-iframe" src="http://localhost:5000/detail.html')
+        browser.back(function() {
+          browser.html().should.not
+            .containEql('<iframe class="scroll-frame-iframe" src="http://localhost:5000/detail.html')
+          done();
+        });
+      });
+    });
   });
 });

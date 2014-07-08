@@ -29,8 +29,9 @@
   "devDependencies": {
     "express": "*",
     "mocha": "*",
-    "benv": "*",
     "should": "*",
-    "jquery": "*"
+    "zombie": "*",
+    "jquery-on-infinite-scroll": "*",
+    "sinon": "*"
   }
 }
