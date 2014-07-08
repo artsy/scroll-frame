@@ -35,6 +35,7 @@
         display: block
       }
     </style>
+    <script src="./scroll-frame-head.js"></script>
   </head>
   <body>
     <ul></ul>
@@ -42,13 +43,13 @@
     <div id='scripts'>
       <script src="http://underscorejs.org/underscore-min.js"></script>
       <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-      <script src="./jquery.on-infinite-scroll.js"></script>
-      <script src="./index.js"></script>
+      <script src="./node_modules/jquery-on-infinite-scroll/index.js"></script>
+      <script src="./scroll-frame.js"></script>
       <script>
         var n = 0;
         var appendItems = function(callback) {
           $('ul').css({ opacity: 0.8 });
-          $.ajax('http://api.artsy.net/api/v1/system/up').then(function() {
+          setTimeout(function(){
             var lis = _.times(10, function(i) {
               n++;
               var width = (300 + Math.round(Math.random() * 200));
@@ -58,7 +59,7 @@
             }).join('');
             $('ul').css({ opacity: 1 }).append(lis);
             if (_.isFunction(callback)) callback();
-          });
+          }), 100;
         }
         $(function () {
           appendItems(function() {
