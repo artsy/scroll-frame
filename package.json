@@ -6,7 +6,9 @@
     "scroll",
     "infinite",
     "infinite scroll",
-    "iframe"
+    "iframe",
+    "scroll position",
+    "retain scroll"
   ],
   "repository": {
     "type": "git",
