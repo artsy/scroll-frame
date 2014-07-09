@@ -19,7 +19,7 @@ Insert the scroll-frame-head script into your `<head>` tag across all views.
 </html>
 ````
 
-You only need to add the main scroll frame script to the pages where you have an infinite scrolling list where you want to retain your scroll position.
+You only need to add the main scroll frame script to the pages where you have an infinite scrolling list that needs to retain scroll position.
 
 ````html
 <html>
