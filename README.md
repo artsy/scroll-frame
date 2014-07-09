@@ -51,6 +51,10 @@ scrollFrame will hijack the user's click for elements that match the query selec
 
 * Because scrollFrame uses HTML5 history APIs it does not work with older browsers and will simply not do anything when included. This should gracefully degrade as it'll just mean older browsers won't retain their scroll position.
 
+## Additionally
+
+Scroll frame will add the `scroll-frame-loading` class to the `<body>` so you can set a loading state while the iframe is loading the page. The iframe has a z-index of 10 so as an example you may want to do something like `body.scroll-frame-loading #scroll-frame-spinner { display: block }`.
+
 # License
 
 MIT

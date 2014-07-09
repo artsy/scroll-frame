@@ -34,6 +34,7 @@
   // @param {String} url
 
   var openIframe = function(url) {
+    var prevHref = location.href;
 
     // Change the history
     history.pushState({ scrollFrame: true, href: location.href }, '', url);
@@ -45,8 +46,10 @@
     iframe.setAttribute('src', url);
     iframe.setAttribute('style', [
       'position: fixed', 'top: 0', 'left: 0', 'width: 100%', 'height: 100%',
-      'z-index: 10', 'background-color: white'
+      'z-index: 3', 'background-color: white'
     ].join(';'));
+    body.setAttribute('style',
+      'overflow: hidden;' + (body.getAttribute('style') || ''));
 
     // Add a class to the body while the iframe loads then append it
     body.className += ' scroll-frame-loading';
@@ -57,8 +60,10 @@
 
     // On back-button remove the iframe
     var onPopState = function(e) {
-      if (e.state && !e.state.scrollFrame) return;
+      if (location.href != prevHref) return;
       body.removeChild(iframe);
+      body.setAttribute('style',
+        body.getAttribute('style').replace('overflow: hidden;', ''));
       removeEventListener('popstate', onPopState);
     }
     addEventListener('popstate', onPopState);
