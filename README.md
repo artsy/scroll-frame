@@ -44,11 +44,11 @@ For a working example check out the [example folder](https://github.com/artsy/sc
 
 ## How it Works
 
-scrollFrame will hijack the user's click for elements that match the query selector you pass in and instead of reloading the page it will append a modal-like iframe that sits on top of your viewport and points to the element's href. It then uses Html5 history APIs to make the back-button function as expected.
+scrollFrame will hijack the user's click for elements that match the query selector you pass in and instead of reloading the page it will append a modal-like iframe that sits on top of your viewport and points to the element's href. It then uses HTML5 history APIs to make the back-button function as expected.
 
 ## Caveats
 
-* scrollFrame will only open the next immediate page in an iframe (solving the simple use case of opening a detail page from an infinite scrolling list without losing your position). After clicking on a link inside the iframe the page refreshes to avoid going down a rabbit hole of stacked iframe modals and messy state.
+* scrollFrame will only open the next immediate page in an iframe (solving the simple use case of opening a detail page from an infinite scrolling list and then clicking back without losing your position). After clicking on a link inside the iframe the page refreshes to avoid going down a rabbit hole of stacked iframe modals and messy state.
 
 * Because scrollFrame uses HTML5 history APIs it does not work with older browsers and will simply not do anything when included. This should gracefully degrade as it'll just mean older browsers won't retain their scroll position.
 
