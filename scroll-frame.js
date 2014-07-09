@@ -16,7 +16,7 @@
       var els = document.querySelectorAll(selector);
       var elMatchesSelector = (window.Array || Array) // Hack for Zombie testing
         .prototype.filter.call(els, function(el) {
-          return el.contains(e.target);
+          return el == e.target || el.contains(e.target);
         }).length > 0
       if (!elMatchesSelector) return;
 
