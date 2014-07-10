@@ -40,7 +40,6 @@
     history.pushState({ scrollFrame: true, href: location.href }, '', url);
 
     // Create the iframe modal
-    url = 'http://localhost:4000/detail.html'
     var body = document.getElementsByTagName('body')[0];
     var iframe = document.createElement("iframe");
     iframe.className = 'scroll-frame-iframe'
