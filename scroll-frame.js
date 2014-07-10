@@ -77,7 +77,7 @@
 
   var refreshOnNewIframePage = function() {
     addEventListener('message', function(e) {
-      if (!e.data.href && !e.data.scrollFrame) return;
+      if (!e.data.href || !e.data.scrollFrame) return;
       if (e.data.href == this.location.href) return;
       var body = document.getElementsByTagName('body')[0];
       var html = document.getElementsByTagName('html')[0];
