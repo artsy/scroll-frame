@@ -1,4 +1,4 @@
-# Scroll Frame
+# scrollFrame
 
 Retain your scroll position between pages using an iframe. Especially helpful for infinite scrolling views.
 
