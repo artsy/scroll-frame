@@ -1,5 +1,7 @@
 (function() {
 
+  var isWebkit = navigator.userAgent.match('WebKit');
+
   // Ignore for unsupported browsers
   if (!window.history && !window.history.pushState) return;
 
@@ -48,8 +50,13 @@
       'z-index: 3', 'background-color: white', 'border: 0'
     ].join(';'));
 
-    body.setAttribute('style',
-      'overflow: hidden;' + (body.getAttribute('style') || ''));
+    // Webkit needs to lock the body from scrolling. This isn't a problem in
+    // Firefox, and in fact adding `overflow: hidden` in FF actually causes the
+    // body to scroll to a different place.
+    if (isWebkit) {
+      body.setAttribute('style', 'overflow: hidden;' +
+        (body.getAttribute('style') || ''));
+    }
 
     // Add a class to the body while the iframe loads then append it
     body.className += ' scroll-frame-loading';
@@ -63,8 +70,10 @@
     var onPopState = function(e) {
       if (location.href != prevHref) return;
       body.removeChild(iframe);
-      body.setAttribute('style',
-        body.getAttribute('style').replace('overflow: hidden;', ''));
+      if (isWebkit) {
+        body.setAttribute('style',
+          body.getAttribute('style').replace('overflow: hidden;', ''));
+      }
       removeEventListener('popstate', onPopState);
     }
     addEventListener('popstate', onPopState);
