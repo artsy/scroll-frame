@@ -43,7 +43,6 @@
     var body = document.getElementsByTagName('body')[0];
     var iframe = document.createElement("iframe");
     iframe.className = 'scroll-frame-iframe'
-    iframe.setAttribute('src', url);
     iframe.setAttribute('style', [
       'position: fixed', 'top: 0', 'left: 0', 'width: 100%', 'height: 100%',
       'z-index: 3', 'background-color: white', 'border: 0'
@@ -58,6 +57,7 @@
       body.className = body.className.replace(' scroll-frame-loading', '');
     }
     body.appendChild(iframe);
+    iframe.contentWindow.location.replace(url);
 
     // On back-button remove the iframe
     var onPopState = function(e) {
