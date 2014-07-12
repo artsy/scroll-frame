@@ -6,7 +6,7 @@ Retain your scroll position between pages using an iframe. Especially helpful fo
 
 ## Example
 
-Insert the scroll-frame-head script into your `<head>` tag across all views.
+Insert scroll-frame-head.js into your `<head>` tag across all views.
 
 ````html
 <html>
@@ -19,7 +19,7 @@ Insert the scroll-frame-head script into your `<head>` tag across all views.
 </html>
 ````
 
-You only need to add the main scroll frame script to the pages where you have an infinite scrolling list that needs to retain scroll position.
+Then insert scroll-frame.js into the pages where you have an infinite scrolling list that needs to retain scroll position.
 
 ````html
 <html>
@@ -34,13 +34,13 @@ You only need to add the main scroll frame script to the pages where you have an
 </html>
 ````
 
-Then simply use the `scrollFrame` function to indicate what links should retain their scroll position when clicked on.
+Finally use the `scrollFrame` function to indicate what links should retain their scroll position when clicked.
 
 ````javascript
 scrollFrame('#my-infinite-scrolling-list a');
 ````
 
-For a working example check out the [example folder](https://github.com/artsy/scroll-frame/tree/master/example) which you can [visit a live demo here](http://artsy.github.io/scroll-frame/demo.html) or run yourself by cloning the project and running `npm run example`.
+For a working example check out the [example folder](https://github.com/artsy/scroll-frame/tree/master/example) which you can [visit a live demo of here](http://artsy.github.io/scroll-frame/demo.html) or run yourself by cloning the project and running `npm run example`.
 
 ## How it Works
 
