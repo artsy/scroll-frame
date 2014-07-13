@@ -11,7 +11,7 @@ Insert scroll-frame-head.js into your `<head>` tag across all views.
 ````html
 <html>
     <head>
-        <script src='scroll-frame-head.js'>
+        <script src='scroll-frame-head.js'></script>
     </head>
     <body>
         <h1>My detail page</h1>
@@ -24,7 +24,7 @@ Then insert scroll-frame.js into the pages where you have an infinite scrolling 
 ````html
 <html>
     <head>
-        <script src='scroll-frame-head.js'>
+        <script src='scroll-frame.js'></script>
     </head>
     <body>
         <!-- Some infinite scrolling list action about to go down here -->
