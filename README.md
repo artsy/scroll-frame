@@ -24,7 +24,7 @@ Then insert scroll-frame.js into the pages where you have an infinite scrolling 
 ````html
 <html>
     <head>
-        <script src='scroll-frame.js'></script>
+        <script src='scroll-frame-head.js'></script>
     </head>
     <body>
         <!-- Some infinite scrolling list action about to go down here -->
