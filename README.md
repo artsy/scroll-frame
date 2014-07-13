@@ -29,7 +29,7 @@ Then insert scroll-frame.js into the pages where you have an infinite scrolling 
     <body>
         <!-- Some infinite scrolling list action about to go down here -->
         <ul id='my-infinite-scrolling-list'></ul>
-        <script src='scroll-frame.js'>
+        <script src='scroll-frame.js'></script>
     </body>
 </html>
 ````
