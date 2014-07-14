@@ -54,7 +54,7 @@ scrollFrame will hijack the user's click for elements that match the query selec
 
 ## Additionally
 
-Scroll frame will add the `scroll-frame-loading` class to the `<body>` so you can set a loading state while the iframe is loading the page. The iframe has a z-index of 10 so as an example you may want to do something like `body.scroll-frame-loading #scroll-frame-spinner { display: block }`.
+Scroll frame will add the `scroll-frame-loading` class to the `<body>` so you can set a loading state while the iframe is loading the page. As an example you may want to do something like `body.scroll-frame-loading #scroll-frame-spinner { display: block }`.
 
 # License
 
