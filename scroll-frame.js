@@ -1,7 +1,5 @@
 (function() {
 
-  var isWebkit = navigator.userAgent.match('WebKit');
-
   // Ignore for unsupported browsers
   if (!window.history && !window.history.pushState) return;
 
@@ -45,9 +43,11 @@
 
     // Create the wrapper & iframe modal
     var body = document.getElementsByTagName('body')[0];
-    var iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
-    var attributes = ['position: fixed', 'top: 0', 'left: 0','width: 100%', 'height: 100%',
-      'z-index: 10000000', 'background-color: white', 'border: 0'];
+    var iOS = navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false;
+    var attributes = [
+      'position: fixed', 'top: 0', 'left: 0','width: 100%', 'height: 100%',
+      'z-index: 10000000', 'background-color: white', 'border: 0'
+    ];
 
     //only add scrolling fix for ios devices
     if (iOS){
