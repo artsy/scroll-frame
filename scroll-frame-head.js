@@ -1,7 +1,7 @@
 (function() {
 
   // Ignore for unsupported browsers
-  if (!window.history && !window.history.pushState) return;
+  if (!(window.history && window.history.pushState)) return;
 
   // If we're inside an iframe modal then send a message to the parent
   // indicating what the iframe's location is so that the parent can decide

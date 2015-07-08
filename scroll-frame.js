@@ -1,7 +1,7 @@
 (function() {
 
   // Ignore for unsupported browsers
-  if (!window.history && !window.history.pushState) return;
+  if (!(window.history && window.history.pushState)) return;
 
   // Main function that listens for clicks to the selector and opens the
   // href of the element in the iframe modal.
