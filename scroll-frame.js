@@ -37,6 +37,7 @@
 
   var openIframe = function(url) {
     var prevHref = location.href;
+    var prevTitle = document.title;
 
     // Change the history
     history.pushState({ scrollFrame: true, href: location.href }, '', url);
@@ -72,6 +73,7 @@
     body.className += ' scroll-frame-loading';
     iframe.onload = function() {
       body.className = body.className.replace(' scroll-frame-loading', '');
+      document.title = iframe.contentDocument.title;
     }
     wrapper.appendChild(iframe);
     body.appendChild(wrapper);
@@ -81,6 +83,7 @@
     var onPopState = function(e) {
       if (location.href != prevHref) return;
       wrapper.removeChild(iframe);
+      document.title = prevTitle;
       body.removeChild(wrapper);
       body.setAttribute('style',
         body.getAttribute('style').replace('overflow: hidden;', ''));
